@@ -10,13 +10,13 @@ The application follows a 3-layer architecture:
 
 ```mermaid
 graph TD
-    User((User)) -->| Enters Java Code | Frontend[Frontend (Vanilla JS + Glassmorphism)]
-    Frontend -->| POST /api/convert | Backend[Backend (Python Flask)]
-    Backend -->| Prompt Engineering | Ollama[Local LLM (Ollama / CodeLlama)]
+    User((User)) -->| Enters Java Code | Frontend["Frontend (Vanilla JS + Glassmorphism)"]
+    Frontend -->| POST /api/convert | Backend["Backend (Python Flask)"]
+    Backend -->| Prompt Engineering | Ollama["Local LLM (Ollama / CodeLlama)"]
     Ollama -->| Converted TS Code | Backend
     Backend -->| JSON Response | Frontend
     Frontend -->| Display Result | User
-    Frontend -->| POST /api/save | Filesystem[(Local Disk)]
+    Frontend -->| POST /api/save | Filesystem[("(Local Disk)")]
 ```
 
 ## ✨ Features
