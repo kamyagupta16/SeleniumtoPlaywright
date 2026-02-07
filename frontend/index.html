@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium → Playwright Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="navbar">
+            <div class="brand">
+                <span class="logo-icon">⚡</span>
+                <h1>Selenium<span class="highlight">2</span>Playwright</h1>
+            </div>
+            <div class="status-indicator" id="status-indicator">
+                <span class="dot"></span>
+                <span class="status-text">Ready</span>
+            </div>
+        </header>
+
+        <main class="workspace">
+            <!-- Source Panel -->
+            <section class="panel source-panel">
+                <div class="panel-header">
+                    <h2><span class="icon">☕</span> Selenium (Java)</h2>
+                    <div class="actions">
+                        <button class="btn-icon" title="Clear" onclick="clearSource()">🗑️</button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="source-code" placeholder="// Paste your Selenium Java code here..."></textarea>
+                </div>
+            </section>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+                <button id="convert-btn" class="btn-primary">
+                    <span class="btn-text">Convert Code</span>
+                    <span class="btn-icon">➔</span>
+                </button>
+                <div class="loader hidden" id="loader">
+                    <div class="spinner"></div>
+                    <span>Processing with CodeLlama...</span>
+                </div>
+            </div>
+
+            <!-- Target Panel -->
+            <section class="panel target-panel">
+                <div class="panel-header">
+                    <h2><span class="icon">🎭</span> Playwright (TypeScript)</h2>
+                    <div class="actions">
+                        <button class="btn-secondary" id="copy-btn" title="Copy to Clipboard">📋 Copy</button>
+                        <button class="btn-success" id="save-btn" title="Save to File">💾 Save</button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <div id="target-overlay" class="overlay hidden">
+                        <div class="spinner"></div>
+                    </div>
+                    <textarea id="target-code" placeholder="// Converted Playwright code will appear here..." readonly></textarea>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Powered by <span class="highlight">Ollama</span> & <span class="highlight">Local LLM</span> • B.L.A.S.T. Protocol Phase 3</p>
+        </footer>
+    </div>
+    
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">Message goes here</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
